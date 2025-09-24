@@ -18,6 +18,10 @@ class LoginController extends Controller
         if(Auth::attempt($credentials)){
             return redirect('/');
         }
+    
+        return back()->withErrors([
+            'email' => 'ログイン情報が登録されていません',
+        ]);
     }
 
     public function logout(Request $request)

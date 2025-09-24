@@ -17,11 +17,10 @@ class CreateProfilesTable extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->string('image')->nullable();
-            $table->string('name');
+            $table->string('name',100);
             $table->string('postal_code');
-            $table->string('prefecture');
-            $table->string('city');
-            $table->string('address_line');
+            $table->string('address');
+            $table->string('building_name')->nullable();
             $table->timestamps();
         });
     }
