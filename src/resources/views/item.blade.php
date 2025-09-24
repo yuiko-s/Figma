@@ -18,9 +18,7 @@
                 
             </div>
         </div>
-        @if ($item->purchase)
-            <span class="sold-label">SOLD</span>
-        @endif
+        
         @empty
             <p>商品がありません。</p>
         @endforelse

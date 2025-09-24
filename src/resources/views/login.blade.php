@@ -5,13 +5,7 @@
 @endsection
 
 @section('content')
-@if(count($errors) > 0)
-<ul>
-@foreach ($errors->all() as $error)
-<p>ログイン情報が登録されていません</p>
-@endforeach
-</ul>
-@endif
+
 <div class="login-form__content">
   <div class="login-form__heading">
     <h2>ログイン</h2>

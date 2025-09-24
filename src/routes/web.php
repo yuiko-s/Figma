@@ -31,7 +31,3 @@ Route::post('/login', [LoginController::class, 'login']);
 Route::get('/mypage', function () {
     return view('mypage');
 })->name('mypage');
-
-Route::get('/sell', function () {
-    return view('sell');
-})->name('sell');
