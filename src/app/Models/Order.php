@@ -15,7 +15,8 @@ class Order extends Model
     'paymentprice',
     'paymentmethod',
     'postal_code',
-    'shippingaddress'
+    'shippingaddress',
+    'building_name'
 ];
 
 }

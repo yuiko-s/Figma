@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePurchaseTable extends Migration
+class AddBuildingNameToOrdersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,8 @@ class CreatePurchaseTable extends Migration
      */
     public function up()
     {
-        Schema::create('purchase', function (Blueprint $table) {
-            $table->id();
-            $table->string('paymentmethod');
-            $table->timestamps();
-            
+        Schema::table('orders', function (Blueprint $table) {
+            $table->string('building_name')->nullable()->after('shippingaddress');
         });
     }
 
@@ -28,6 +25,8 @@ class CreatePurchaseTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('purchase');
+        Schema::table('orders', function (Blueprint $table) {
+            $table->dropColumn('building_name');
+        });
     }
 }

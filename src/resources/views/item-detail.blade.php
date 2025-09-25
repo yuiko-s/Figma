@@ -32,10 +32,10 @@
         <a href="{{ route('login') }}">ログインしてお気に入り</a>
         @endauth
 
-        <form action="{{ route('purchase', $item->id) }}" method="POST">
-        @csrf
-        <button class="item-detail__button" type="submit">購入手続きへ</button>
-
+        <form action="{{ route('purchase', $item->id) }}" method="GET">
+            <button class="item-detail__button" type="submit">購入手続きへ</button>
+        </form>
+        
         <h2>商品説明</h2>
         <p class="item-detail__description">{{ $item->description }}</p>
 
@@ -43,7 +43,7 @@
             <p class="item-detail__info">{{ $item->info }}</p>
         
             
-        </form>
+        
     </div>
 </div>
 @endsection

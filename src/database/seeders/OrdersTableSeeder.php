@@ -17,13 +17,12 @@ class OrdersTableSeeder extends Seeder
             [
                 'buyer_id' => 1,
                 'item_id' => 1,
-                'price' => 15000,
-                'status' => 'paid',
-                'postal_code' => '123-4567',
-                'prefecture' => '東京都',
-                'city' => '新宿区',
-                'address_line' => '西新宿2-8-1',
-                'phone_number' => '08012345678',
+                'paymentprice',
+                'paymentmethod',
+                'postal_code'=>'123-4567',
+                'shippingaddress'=>'東京都新宿区西新宿2-8-1',
+                
+                
             ]
         ];
     }

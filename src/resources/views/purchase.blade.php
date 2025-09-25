@@ -1,43 +1,49 @@
 @extends('layouts.app')
 
-@section('title', $item->name)
-
 @section('css')
 <link rel="stylesheet" href="{{ asset('css/purchase.css') }}">
 @endsection
 
 @section('content')
-<div class="item-detail">
-    {{-- 左側：商品画像 --}}
-    <div class="item-detail__image">
-        <img src="{{ \Storage::url($item->image) }}" alt="{{ $item->name }}">
+<div class="purchase">
+
+  {{-- 商品情報 --}}
+  <div class="item-detail">
+    <img src="{{ \Storage::url($item->image) }}" alt="{{ $item->name }}" class="item-image">
+    <h3>{{ $item->name }}</h3>
+    <p>金額: ￥{{ number_format($item->price) }}</p>
+  </div>
+
+  {{-- 支払い方法選択 --}}
+  <form action="{{ route('purchase.store', $item->id) }}" method="POST">
+    @csrf
+    <div class="form-group">
+      <label for="paymentmethod">支払い方法</label>
+      <select id="paymentmethod" name="paymentmethod" required>
+        @foreach ($paymentOptions as $opt)
+          <option value="{{ $opt }}">{{ $opt }}</option>
+        @endforeach
+      </select>
     </div>
-    <div class="item-detail__info">
-        <h1 class="item-detail__name">{{ $item->name }}</h1>
-        @if(!empty($item->brand))
-        @endif
-        <p class="item-detail__price">￥{{ number_format($item->price) }}(税込)</p>
 
-        
-    {{-- 支払い方法 --}}
-    <form class = "paymentmethod">
-        <select name="select">
-            <option value="コンビニ払い">コンビニ払い</option>
-            <option value="カード払い">カード払い</option>
-        </select>
-    </form>
-
-    {{-- 配送先 --}}
-
-     {{-- 右側：商品情報 --}}
-
-        <form action="{{ route('purchase.store', $item->id) }}" method="POST">
-        @csrf
-        <button class="item-detail__button" type="submit">購入する</button>
-
-            
-        </form>
+    {{-- 配送先情報 --}}
+    <div class="address-info">
+      <h4>配送先</h4>
+      <p>
+        〒{{ $address['postal_code'] }}<br>
+        {{ $address['shippingaddress'] }} {{ $address['building_name'] }}
+      </p>
+      <a href="{{ route('purchase.address.form', $item->id) }}">変更する</a>
     </div>
+
+    {{-- 小計情報 --}}
+    <div class="subtotal">
+      <p>商品代金: ￥{{ number_format($item->price) }}</p>
+      <p>支払い方法: 選択したものが確定時に表示されます</p>
+    </div>
+
+    {{-- 購入ボタン --}}
+    <button type="submit" class="btn btn-primary">購入確定</button>
+  </form>
 </div>
 @endsection
-

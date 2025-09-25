@@ -12,6 +12,7 @@ use App\Http\Controllers\MypageprofileController;
 
 
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -27,8 +28,13 @@ Route::middleware('auth')->group(function () {
     });
     Route::post('/items/{item}/like', [ItemController::class, 'likeItem'])->name('items.like');
 
-    Route::get('/purchase/{item_id}', [PurchaseController::class, 'purchase'])->name('purchase');
-    Route::post('/purchase/{item_id}', [PurchaseController::class, 'store'])->name('purchase.store');
+    Route::get('/purchase/{item}',  [PurchaseController::class, 'show'])->name('purchase');
+    Route::post('/purchase/{item}', [PurchaseController::class, 'store'])->name('purchase.store');
+
+
+    Route::get('/purchase/address/{item}',  [PurchaseController::class, 'editAddress'])->name('purchase.address.form');
+    Route::post('/purchase/address/{item}', [PurchaseController::class, 'updateAddress'])->name('purchase.address.store');
+
 
     Route::get('/order', [ItemController::class, 'order'])->name('order');
 

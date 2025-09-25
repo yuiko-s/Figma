@@ -11,12 +11,8 @@ use App\Models\item;
 
 class Purchase extends Model
 {
-    use HasFactory;
-
-    protected $fillable = [
-        'item_id' => 'required',
-        'buyer_id' => 'required',        
-    ];
+    protected $table = 'purchase'; 
+    protected $fillable = ['paymentmethod'];
 
 
     public function item()
