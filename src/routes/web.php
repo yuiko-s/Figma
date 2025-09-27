@@ -25,7 +25,7 @@ use App\Http\Controllers\MypageprofileController;
 */
 
 Route::middleware('auth')->group(function () {
-    });
+    
     Route::post('/items/{item}/like', [ItemController::class, 'likeItem'])->name('items.like');
 
     Route::get('/purchase/{item}',  [PurchaseController::class, 'show'])->name('purchase');
@@ -45,7 +45,7 @@ Route::middleware('auth')->group(function () {
     Route::post('/mypage/profile', [MypageprofileController::class, 'store'])->name('mypage.profile.store');
     
     //　ログインしないと表示されないものはここ
-
+});
 
 Route::get('/', [ItemController::class, 'index'])->name('items.index');
 

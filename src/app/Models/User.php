@@ -71,4 +71,19 @@ class User extends Authenticatable
      // いいねしていれば削除
      return $this->likes()->where('item_id', $itemId)->delete();
     }
+
+//マイページ
+    public function sellitems()
+    {
+    return $this->hasMany(\App\Models\Item::class, 'user_id');
+    }
+
+    public function orders() {
+    return $this->hasMany(\App\Models\Order::class, 'buyer_id');
+    }
+
+    public function ordersItems() {
+    return $this->belongsToMany(\App\Models\Item::class, 'orders', 'buyer_id', 'item_id')
+                ->withTimestamps();
+    }
 }

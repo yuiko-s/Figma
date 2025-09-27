@@ -1,12 +1,31 @@
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Figma</title>
-</head>
-<body>
-    <main>
-        <h2>マイページ</h2>
-</body>
-</html>
+@extends('layouts.app')
+
+@section('title', '商品一覧')
+
+@section('css')
+<link rel="stylesheet" href="{{ asset('css/item.css') }}">
+@endsection
+
+@section('content')
+
+<img src="{{ $user->image ? Storage::url($user->image) : asset('images/default-avatar.png') }}">
+<h1>{{ $user->name }}</h1>
+
+<div class="item-list">
+    
+    @forelse ($items as $item)
+        <div class="item-card">
+            <a href="{{ route('items.show', ['id' => $item->id]) }}" class="item-card__image">
+                <img src="{{ \Storage::url($item->image) }}" alt="{{ $item->name }}">
+            </a>
+            <div class="item-card__info">
+                <h2 class="item-card__name">{{ $item->name }}</h2>
+                
+            </div>
+        </div>
+        
+        @empty
+            <p>商品がありません。</p>
+        @endforelse
+</div>
+@endsection

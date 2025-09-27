@@ -18,14 +18,16 @@ class RegisterController extends Controller
         return view('register');
     }
 
-    public function store(User $user,RegisterUserRequest $request) {
-        
-        $user = [
+    public function store(RegisterUserRequest $request) {
+
+        $data = $request->validated();
+
+        $user = User::create([
         'name' => $request->name, 
         'email' => $request->email, 
         'password' => Hash::make($request->password),
-        ];
-        User::create($user);
+        ]);
+        
 
         Auth::login($user);
 

@@ -12,7 +12,7 @@ use App\Models\TrPart;
 
 class PurchaseController extends Controller
 {
-    // ① 購入ページ
+    // 購入ページ
     public function show(Item $item)
     {
         
@@ -48,7 +48,7 @@ class PurchaseController extends Controller
         return redirect()->route('items.index');
     }
 
-    // ② 住所変更ページ表示
+    // 住所変更ページ表示
     public function editAddress(Item $item)
     {
         $address = session('address', [
@@ -59,7 +59,7 @@ class PurchaseController extends Controller
         return view('address', compact('item','address'));
     }
 
-    // ② 住所更新
+    // 住所更新
     public function updateAddress(Request $request, Item $item)
     {
         $data = $request->validate([
@@ -70,6 +70,6 @@ class PurchaseController extends Controller
 
         session(['address' => $data]);
 
-        return redirect()->route('purchase', $item->id)->with('success','住所を更新しました');
+        return redirect()->route('purchase', $item->id);
     }
 }
