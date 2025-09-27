@@ -19,7 +19,7 @@ class RegisterController extends Controller
     }
 
     public function store(RegisterUserRequest $request) {
-
+  dd($request->all);
         $data = $request->validated();
 
         $user = User::create([
@@ -27,7 +27,7 @@ class RegisterController extends Controller
         'email' => $request->email, 
         'password' => Hash::make($request->password),
         ]);
-        
+    
 
         Auth::login($user);
 

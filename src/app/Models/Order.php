@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Item;
 
 class Order extends Model
 {
@@ -17,6 +18,9 @@ class Order extends Model
     'postal_code',
     'shippingaddress',
     'building_name'
-];
+    ];
 
+    public function item() {
+    return $this->belongsTo(\App\Models\Item::class);
+    }
 }
