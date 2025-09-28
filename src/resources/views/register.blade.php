@@ -62,8 +62,8 @@
       </div>
       <div class="form__group-content">
         <div class="form__input--text">
-          <input type="password" name="confirmation_password" />
-          @error('confirmation_password')
+          <input type="password" name="password_confirmation" />
+          @error('password_confirmation')
           {{ $message }}
           @enderror
         </div>

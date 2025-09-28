@@ -71,7 +71,7 @@ class ItemsTableSeeder extends Seeder
         'price' => 8000,
         'description' => '高音質のレコーディング用マイク',
         'info' => '目立った傷や汚れなし',
-        'image' => 'img/マイクmicrophone.jpg',
+        'image' => 'img/microphone.jpg',
         'is_sold' => false,
     ],
     [

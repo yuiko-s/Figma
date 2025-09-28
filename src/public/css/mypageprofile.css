@@ -1,0 +1,125 @@
+.mypageprofile-form__content {
+    margin: 0 auto;
+    padding: 30px 15px;
+    max-width: 1540px;
+}
+
+
+.mypageprofile-form__heading {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+
+
+
+.mypageprofile-form__group {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+
+.mypageprofile-form__group-title {
+    text-align: left;
+}
+
+
+.mypageprofile-form__error {
+    height: 20px;
+    color: #ff0000;
+    text-align: left;
+}
+
+
+.mypageprofile-form__input input,
+.mypageprofile-form__input select,
+.mypageprofile-form__input textarea {
+    flex-direction: column;
+    justify-content: center;
+    padding: 10px;
+    width: 100%;
+    height: 10px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    appearance: none;
+}
+
+
+.mypageprofile-form__input--file input {
+    width: 25vw;
+    height: auto;
+    padding: 8px;
+}
+
+
+.mypageprofile-form__button {
+    margin-top: 20px;
+}
+
+.mypageprofile-form__button-submit {
+    flex-direction: column;
+    justify-content: center;
+    padding: 10px;
+    width: 100%;
+    border: none;
+    border-radius: 3px;
+    background: #eb6161;
+    color: #fff;
+    cursor: pointer;
+}
+
+.mypageprofile-form {
+    margin: 0 auto;
+    width: min(90%, 420px);
+    text-align: left;
+}
+
+.mypageprofile-form .form__input--text input,
+.mypageprofile-form input[type="text"],
+.mypageprofile-form input[type="email"],
+.mypageprofile-form input[type="file"],
+.mypageprofile-form textarea,
+.mypageprofile-form select {
+    display: block;
+    width: 100%;
+    margin: 0 auto;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+
+}
+
+.mypageprofile-form .form__button-submit {
+    display: block;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+.file-select-btn {
+    display: inline-block;
+    padding: 10px 16px;
+    background: #eb6161;
+    color: #fff;
+    border-radius: 3px;
+    cursor: pointer;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.file-name {
+    margin-left: 8px;
+    color: #666;
+}

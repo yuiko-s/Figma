@@ -14,7 +14,9 @@ class ItemController extends Controller
     public function index()
     {
         if (Auth::check()) {
-        $items = Item::where('user_id', '!=', Auth::id());
+         $items = Item::with('likes')
+            ->where('user_id', '!=', Auth::id())
+            ->get();
         }else{
             $items = Item::with('likes')->get();
             }

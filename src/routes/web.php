@@ -42,7 +42,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/mypage', [MypageController::class, 'index'])->name('mypage');
 
     Route::get('/mypage/profile', [MypageprofileController::class, 'index'])->name('mypage.profile');
-    Route::post('/mypage/profile', [MypageprofileController::class, 'store'])->name('mypage.profile.store');
+    Route::post('/mypage/profile', [MypageprofileController::class, 'save'])->name('mypage.profile.save');
     
     //　ログインしないと表示されないものはここ
 });
