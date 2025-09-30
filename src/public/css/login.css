@@ -63,3 +63,41 @@
     margin-top: 20px;
     text-align: center;
 }
+
+
+.form {
+    width: 100%;
+    max-width: var(--form-max-width);
+    margin: 0 auto;
+    text-align: center;
+}
+
+.form__group-content input[type="text"],
+.form__group-content input[type="number"],
+.form__group-content select,
+.form__group-content textarea,
+.form__input--file,
+.form__button-submit {
+    width: 100%;
+}
+
+.form__input--chips {
+    display: inline-block;
+    width: 100%;
+    padding: 8px 10px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    background: #fff;
+    text-align: left;
+}
+
+.price-input {
+    position: relative;
+    display: inline-flex;
+    width: 100%;
+}
+
+.price-input input {
+    padding-left: 24px;
+}
+

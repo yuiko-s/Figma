@@ -1,0 +1,142 @@
+.purchase {
+    position: relative;
+    max-width: 960px;
+    margin: 0 auto;
+    padding-right: 300px;
+    box-sizing: border-box;
+}
+
+.item-detail {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid #e5e5e5;
+    margin-bottom: 16px;
+}
+
+.item-detail .item-image {
+    width: 96px;
+    height: 96px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.item-detail h3 {
+    margin: 0 0 6px;
+    font-size: 1.1rem;
+}
+
+.item-detail p {
+    margin: 0;
+    font-weight: 600;
+}
+
+.form-group {
+    padding: 16px 0;
+    border-bottom: 1px solid #e5e5e5;
+    /* 罫線 */
+    margin-bottom: 16px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.form-group select {
+    width: 260px;
+    max-width: 100%;
+}
+
+.address-info {
+    padding: 16px 0;
+    border-bottom: 1px solid #e5e5e5;
+    /* 罫線 */
+    margin-bottom: 16px;
+}
+
+.address-info h4 {
+    margin: 0 0 8px;
+}
+
+.address-info p {
+    margin: 0 0 8px;
+}
+
+.address-info a {
+    text-decoration: underline;
+}
+
+.subtotal {
+    position: absolute;
+    top: 16px;
+    right: 0;
+    width: 260px;
+    border: 1px solid #d0d0d0;
+    border-radius: 10px;
+    padding: 14px;
+    background: #fff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.subtotal p {
+    margin: 0 0 8px;
+}
+
+.subtotal .subtotal__title {
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.btn.btn-primary {
+    display: inline-block;
+    margin-top: 16px;
+    padding: 10px 16px;
+    border-radius: 8px;
+}
+ 
+
+
+@media (max-width: 800px) {
+    .purchase {
+        padding-right: 0;
+    }
+
+        .subtotal {
+            border-radius: 0;
+            border: 1px solid #333;
+    }
+        .subtotal .subtotal__title {
+            margin-bottom: 10px;
+            padding-bottom: 0;
+            border: 0;
+        }
+        .subtotal p:not(.subtotal__title)+p:not(.subtotal__title) {
+            border-top: 1px solid #e5e5e5;
+            padding-top: 10px;
+            margin-top: 10px;
+        }
+}
+
+.purchase .btn.btn-primary {
+    background-color: #eb6161 !important;
+    border-color: #eb6161 !important;
+    color: #fff !important;
+    border-radius: 0 !important;
+    box-shadow: none;
+}
+
+@media (min-width: 801px) {
+
+    .purchase .subtotal+.btn.btn-primary {
+        position: absolute;
+        right: 0;
+        width: 260px;
+        margin-top: 0;
+        transform: translateY(-250px);
+    }
+
+
+}

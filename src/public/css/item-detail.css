@@ -6,26 +6,18 @@
 
 .item-detail__image img {
     max-width: 400px;
-    /* 画像サイズ調整 */
     height: auto;
     display: block;
 }
 
 .item-detail__info {
     flex: 1;
-    /* 残り幅いっぱいに広げる */
+
 }
 
 .item-detail__name {
     font-size: 24px;
     margin-bottom: 10px;
-}
-
-.item-detail__price {
-    font-size: 20px;
-    font-weight: bold;
-    color: #e60023;
-    margin-bottom: 20px;
 }
 
 .item-detail__description {
@@ -38,4 +30,29 @@
     color: #fff;
     border: none;
     cursor: pointer;
+}
+
+.like-star {
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+    font-size: 24px;
+    line-height: 1;
+    cursor: pointer;
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+.like-inline {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.item-detail__price {
+    font-size: 20px;
+    font-weight: bold;
+    color: #000000;
+    margin-bottom: 20px;
 }
