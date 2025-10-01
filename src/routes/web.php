@@ -9,7 +9,8 @@ use App\Http\Controllers\PurchaseController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\MypageController;
 use App\Http\Controllers\MypageprofileController;
-
+use App\Http\Controllers\SellController;
+use App\Http\Controllers\CommentController;
 
 
 
@@ -25,8 +26,9 @@ use App\Http\Controllers\MypageprofileController;
 */
 
 Route::middleware('auth')->group(function () {
-    
+
     Route::post('/items/{item}/like', [ItemController::class, 'likeItem'])->name('items.like');
+    Route::post('/items/{item}/comments', [CommentController::class, 'store'])->name('items.comments.store');
 
     Route::get('/purchase/{item}',  [PurchaseController::class, 'show'])->name('purchase');
     Route::post('/purchase/{item}', [PurchaseController::class, 'store'])->name('purchase.store');
@@ -38,12 +40,15 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/order', [ItemController::class, 'order'])->name('order');
 
+    Route::get('/sell',  [SellController::class, 'create'])->name('sell');
+    Route::post('/sell', [SellController::class, 'store'])->name('sell.store');
+
 
     Route::get('/mypage', [MypageController::class, 'index'])->name('mypage');
 
     Route::get('/mypage/profile', [MypageprofileController::class, 'index'])->name('mypage.profile');
     Route::post('/mypage/profile', [MypageprofileController::class, 'save'])->name('mypage.profile.save');
-    
+
     //　ログインしないと表示されないものはここ
 });
 
@@ -62,6 +67,3 @@ Route::post('/register', [RegisterController::class, 'store'])->name('register.s
 Route::get('/login', [LoginController::class, 'index'])->name('login');
 Route::post('/login', [LoginController::class, 'login']);
 
-Route::get('/sell', function () {
-    return view('sell');
-})->name('sell');

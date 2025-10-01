@@ -28,25 +28,27 @@ class PurchaseController extends Controller
     }
 
     public function store(Request $request, Item $item)
-    {
-        $data = $request->validate([
-            'paymentmethod'   => ['required','in:コンビニ払い,カード払い'],
-        ]);
+{
+    $data = $request->validate([
+        'paymentmethod' => ['required','in:コンビニ払い,カード払い'],
+    ]);
+    $address = session('address', []);
 
-        $address = session('address', []);
+    Order::create([
+        'item_id'         => $item->id,
+        'buyer_id'        => Auth::id(),
+        'paymentmethod'   => $data['paymentmethod'],
+        'paymentprice'    => $item->price,
+        'postal_code'     => $address['postal_code'] ?? '',
+        'shippingaddress' => $address['shippingaddress'] ?? '',
+        'building_name'   => $address['building_name'] ?? '',
+    ]);
 
-        Order::create([
-            'item_id'         => $item->id,
-            'buyer_id'        => Auth::id(),
-            'paymentmethod'   => $data['paymentmethod'],
-            'paymentprice'    => $item->price,
-            'postal_code'     => $address['postal_code'] ?? '',
-            'shippingaddress' => $address['shippingaddress'] ?? '',
-            'building_name'   => $address['building_name'] ?? '',
-        ]);
+    $item->update(['is_sold' => true]);
 
-        return redirect()->route('items.index');
-    }
+    return redirect()->route('items.index', ['tab' => 'mylist']);
+}
+
 
     // 住所変更ページ表示
     public function editAddress(Item $item)
@@ -70,6 +72,6 @@ class PurchaseController extends Controller
 
         session(['address' => $data]);
 
-        return redirect()->route('purchase', $item->id);
+        return redirect()->route('items.index');
     }
 }

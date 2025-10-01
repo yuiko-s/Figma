@@ -123,3 +123,122 @@
     margin-left: 8px;
     color: #666;
 }
+.register-form__content {
+    margin: 0 auto;
+    padding: 30px 15px;
+    max-width: 1540px;
+}
+
+.register-form__heading {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.form {
+    margin: 0 auto;
+    width: 25%;
+    text-align: center;
+}
+
+.form__group {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.form__group-title {
+    text-align: left;
+}
+
+.form__error {
+    height: 20px;
+    color: #ff0000;
+    text-align: left;
+}
+
+.form__input--text input {
+    flex-direction: column;
+    justify-content: center;
+    padding: 10px;
+    width: 25vw;
+    height: 10px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+
+    appearance: none;
+}
+
+.form__button {
+    margin-top: 20px;
+}
+
+.form__button-submit {
+    flex-direction: column;
+    justify-content: center;
+    padding: 10px;
+    width: 25vw;
+    border: none;
+    border-radius: 3px;
+    background: #eb6161;
+    color: #fff;
+    cursor: pointer;
+}
+
+.login__link {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.mypageprofile-form__content {
+    display: block;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+.mypageprofile-form__content .form {
+    width: min(90%, 420px) !important;
+    margin: 0 auto !important;
+    text-align: left;
+}
+
+
+.mypageprofile-form__content .form .form__input--text input,
+.mypageprofile-form__content .form input[type="text"],
+.mypageprofile-form__content .form input[type="email"],
+.mypageprofile-form__content .form input[type="file"],
+.mypageprofile-form__content .form textarea,
+.mypageprofile-form__content .form select {
+    display: block;
+    width: 100% !important;
+    height: auto;
+    min-height: 38px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    box-sizing: border-box;
+}
+
+.mypageprofile-form__content .form .form__button-submit {
+    display: block;
+    width: 100% !important;
+    margin-top: 20px;
+    background: #ff69b4;
+    border: 1px solid #ff69b4;
+    color: #fff;
+    border-radius: 0;
+    cursor: pointer;
+}
+
+.mypageprofile-form__content .form .form__button-submit:hover {
+    background: #ff5fae;
+    border-color: #ff5fae;
+}
+
+.mypageprofile-form__content .profile__avatar {
+    display: block;
+    margin: 0 auto 12px;
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 50%;
+}

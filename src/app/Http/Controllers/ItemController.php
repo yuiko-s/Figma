@@ -14,23 +14,25 @@ class ItemController extends Controller
     public function index()
     {
         if (Auth::check()) {
-         $items = Item::with('likes')
-            ->where('user_id', '!=', Auth::id())
+        $items = Item::with('likes')
+            ->when(Auth::check(), fn($q) => $q->where('user_id', '!=', Auth::id()))
             ->get();
         }else{
-            $items = Item::with('likes')->get();
+            $items = Item::with('likes')
+            ->get();
             }
             $likes = like::all();
 
             return view('item', compact('items','likes'));
-        
     }
 
 
     public function show($id)
     {
-        $item = Item::withCount('likes')->findOrFail($id);
-        return view('item-detail', compact('item'));
+        $item = Item::withCount(['likes', 'comments'])
+            ->with(['comments.user'])
+            ->findOrFail($id);
+            return view('item-detail', compact('item'));
     }
 
     //いいね
@@ -39,17 +41,16 @@ class ItemController extends Controller
         $userId = Auth::id();
 
         $liked_item = $item->likes()->where('user_id', $userId);
-        
         if ($liked_item->exists()){
             $liked_item->delete();
             $favorited = false;
-                } else {    
+                } else {
                 Like::create(['user_id'=>$userId, 'item_id'=>$item->id]);
                 $favorited = true;
                 }
-                 return redirect()->route('items.show', ['id' => $item->id]);
+                return redirect()->route('items.show', ['id' => $item->id]);
             }
-    
+
     public function likes()
     {
         $items = \Auth::user()->likes()->orderBy('created_at', 'desc')->paginate(10);
@@ -57,12 +58,11 @@ class ItemController extends Controller
             'items' => $items,
         ];
         return view('items.likes', $data);
-    } 
+    }
 
     public function purchase(Request $request)
     {
         $purchase = $request->only(['item_id', 'buyer_id']);
         return view('purchase',compact('purchase'));
     }
-    
 }

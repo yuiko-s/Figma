@@ -33,4 +33,14 @@ class Item extends Model
     public function likes() {
         return $this->hasMany(Like::class);
     }
+
+    public function comments()
+    {
+    return $this->hasMany(\App\Models\Comment::class)->latest();
+    }
+
+    public function purchases()
+    {
+        return $this->hasMany(Purchase::class, 'item_id');
+    }
 }

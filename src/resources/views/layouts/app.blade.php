@@ -49,7 +49,7 @@
                     <a class="header__link" href="{{ route('mypage') }}">マイページ</a>
                 </li>
                 <li class="header__nav-item">
-                    <form class="form" action="/logout" method="post">
+                    <form class="header__form" action="/logout" method="post">
                         @csrf
                         <button button class="header__link button--link" type="submit">ログアウト</button>
                     </form>

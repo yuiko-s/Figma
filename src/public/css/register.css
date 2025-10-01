@@ -9,29 +9,29 @@
     text-align: center;
 }
 
-.form {
+.register-form__content .form {
     margin: 0 auto;
     width: 25%;
     text-align: center;
 }
 
-.form__group {
+.register-form__content .form__group {
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
 
-.form__group-title {
+.register-form__content .form__group-title {
     text-align: left;
 }
 
-.form__error {
+.register-form__content .form__error {
     height: 20px;
     color: #ff0000;
     text-align: left;
 }
 
-.form__input--text input {
+.register-form__content .form__input--text input {
     flex-direction: column;
     justify-content: center;
     padding: 10px;
@@ -43,11 +43,11 @@
     appearance: none;
 }
 
-.form__button {
+.register-form__content .form__button {
     margin-top: 20px;
 }
 
-.form__button-submit {
+.register-form__content .form__button-submit {
     flex-direction: column;
     justify-content: center;
     padding: 10px;
@@ -59,7 +59,7 @@
     cursor: pointer;
 }
 
-.login__link {
+.register-form__content .login__link {
     margin-top: 20px;
     text-align: center;
 }

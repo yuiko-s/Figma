@@ -46,7 +46,7 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function items() 
+    public function items()
     {
     return $this->hasMany(Item::class,'user_id');
     }
@@ -69,11 +69,11 @@ class User extends Authenticatable
     public function unlike($itemId)
     {
      // いいねしていれば削除
-     return $this->likes()->where('item_id', $itemId)->delete();
+    return $this->likes()->where('item_id', $itemId)->delete();
     }
 
 //マイページ
-    
+
     public function orders() {
     return $this->hasMany(\App\Models\Order::class, 'buyer_id');
     }
@@ -89,6 +89,11 @@ class User extends Authenticatable
     public function profile()
     {
     return $this->hasOne(\App\Models\Profile::class);
+    }
+
+    public function comments()
+    {
+    return $this->hasMany(\App\Models\Comment::class);
     }
 
 }

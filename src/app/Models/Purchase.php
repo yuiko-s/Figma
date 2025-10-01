@@ -12,19 +12,17 @@ use App\Models\item;
 class Purchase extends Model
 {
     protected $table = 'purchase'; 
-    protected $fillable = ['paymentmethod'];
+    protected $fillable = ['item_id', 'buyer_id', 'paymentmethod', 'status'];
 
 
     public function item()
     {
-        return $this->belongsTo(Item::class);
+        return $this->belongsTo(Item::class, 'item_id');
     }
 
-    public function showPurchase()
+    public function buyer()
     {
-        $buyer_id = Auth::id()->with('item')->latest()->get();
-
-        return view('purchases.index', compact('purchases'));
+        return $this->belongsTo(User::class, 'buyer_id');
     }
 }
 

@@ -1,8 +1,3 @@
-:root {
-    --page-max-width: 640px;
-    --page-hpad: 15px;
-}
-
 .header {
     background: #000;
 }

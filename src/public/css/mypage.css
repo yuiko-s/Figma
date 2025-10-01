@@ -1,7 +1,5 @@
-/* タブ全体 */
 .tabs {
     --tab-indicator: #111;
-    /* ← 色をここで一括変更可 */
     display: flex;
     align-items: flex-end;
     gap: 28px;
@@ -15,7 +13,6 @@
     display: none;
 }
 
-/* タブ項目（リンク） */
 .tabs__item {
     position: relative;
     display: inline-block;
@@ -50,7 +47,6 @@
     }
 }
 
-/*　一覧　*/
 .item-list {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -114,7 +110,6 @@
     font-weight: bold;
 }
 
-/* ボタン文言変更 */
 .visually-hidden {
     position: absolute;
     width: 1px;

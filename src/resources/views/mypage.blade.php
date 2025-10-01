@@ -15,7 +15,7 @@
     alt="{{ $user->name }}"
   >
   <h1 class="profile__name">{{ $user->name }}</h1>
-  
+
   <div class="mypageprofile__link">
     <a class="mypageprofile__button-submit" href="/mypage/profile">プロフィールを編集</a>
   </div>
@@ -32,16 +32,16 @@
   </a>
 
   <a
-    href="{{ route('mypage', ['tab' => 'order']) }}"
-    class="tabs__item {{ $tab === 'order' ? 'is-active' : '' }}"
-    aria-current="{{ $tab === 'order' ? 'page' : 'false' }}"
+    href="{{ route('mypage', ['tab' => 'buy']) }}"
+    class="tabs__item {{ $tab === 'buy' ? 'is-active' : '' }}"
+    aria-current="{{ $tab === 'buy' ? 'page' : 'false' }}"
   >
     購入した商品
   </a>
 </nav>
 
 {{-- 一覧 --}}
-<div class="item-list">    
+<div class="item-list">
     @forelse ($items as $item)
         <div class="item-card">
             <a href="{{ route('items.show', ['id' => $item->id]) }}" class="item-card__image">
@@ -49,10 +49,8 @@
             </a>
             <div class="item-card__info">
                 <h2 class="item-card__name">{{ $item->name }}</h2>
-                
             </div>
         </div>
-        
         @empty
             <p>商品がありません。</p>
         @endforelse

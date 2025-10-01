@@ -13,4 +13,7 @@ class Comment extends Model
     'item_id',
     'comment',
 ];
+
+    public function item() { return $this->belongsTo(\App\Models\Item::class); }
+    public function user() { return $this->belongsTo(\App\Models\User::class); }
 }

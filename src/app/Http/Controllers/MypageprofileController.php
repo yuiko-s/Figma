@@ -8,13 +8,13 @@ use Illuminate\Support\Facades\Storage;
 
 class MypageprofileController extends Controller
 {
-     public function index(){
-         $user = Auth::user();
-         $profile = $user->profile;
-         return view('mypageprofile', compact('user', 'profile'));
-     }
+    public function index(){
+        $user = Auth::user();
+        $profile = $user->profile;
+        return view('mypageprofile', compact('user', 'profile'));
+    }
 
-     public function save(Request $request)
+    public function save(Request $request)
     {
         $user = Auth::user();
 
@@ -27,11 +27,11 @@ class MypageprofileController extends Controller
         ]);
 
         if ($request->hasFile('image')) {
-            $data['image'] = $request->file('image')->store('img', 'public'); // 'img/xxxx.jpg'
+            $data['image'] = $request->file('image')->store('img', 'public');
         }
 
     $user->profile()->updateOrCreate([], $data);
 
-        return redirect()->route('mypage.profile');
+        return redirect()->route('items.index');
     }
 }
